@@ -1,5 +1,5 @@
 name: standalone_pkg
-description: A new Flutter package project.
+description: A new Flutter package with a customized TextButton
 version: 0.0.1
 homepage: https://github.com/marsrayfs/sample_pkg
 
@@ -8,6 +8,11 @@ environment:
   flutter: ">=1.17.0"
 
 dependencies:
+  cloud_firestore: ^4.3.1
+  firebase_auth: ^4.2.5
+  firebase_core: ^2.4.1
+  firebase_messaging: ^14.2.1
+  firebase_storage: ^11.0.10
   flutter:
     sdk: flutter
 
