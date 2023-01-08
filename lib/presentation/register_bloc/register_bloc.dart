@@ -1,7 +1,7 @@
 library standalone_pkg;
 
-import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:standalone_pkg/domain/usecase/register_usecase.dart';
 
 import '../../util/result.dart';
