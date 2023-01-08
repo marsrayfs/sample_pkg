@@ -1,3 +1,6 @@
+## 0.0.3
+* Updated repository constructor
+
 ## 0.0.2
 * Added registration feature (Firebase)
 
