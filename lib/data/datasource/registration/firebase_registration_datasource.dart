@@ -10,7 +10,7 @@ class FirebaseRegistrationDataSource implements RegistrationDataSource {
   Future<Result> register(String email, String password) async {
     try {
       var userCredential = await FirebaseAuth.instance
-          .signInWithEmailAndPassword(email: email, password: password);
+          .createUserWithEmailAndPassword(email: email, password: password);
       return Success(
           data: FirebaseUser(uid: userCredential.user!.uid).toUser());
     } on FirebaseException catch (e) {
