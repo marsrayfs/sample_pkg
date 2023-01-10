@@ -1,3 +1,6 @@
+## 0.0.5
+* Ready for demo
+
 ## 0.0.4
 * Fixed mistake on using signin instead of register (Fixed by Jayrek Tabasa)
 
