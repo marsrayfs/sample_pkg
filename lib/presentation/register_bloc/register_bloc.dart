@@ -15,13 +15,14 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
 
   RegisterBloc(this.registerUseCase) : super(RegisterState.initial()) {
     on<StartRegisterEvent>((event, emit) async {
-      emit(state.copyWith(state: State.loading));
+      emit(state.copyWith(state: RegisterStateEnum.loading));
       var result = await registerUseCase.register(event.email, event.password);
 
       if (result is Success) {
-        emit(state.copyWith(result: result, state: State.registered));
+        emit(state.copyWith(
+            result: result, state: RegisterStateEnum.registered));
       } else {
-        emit(state.copyWith(result: result, state: State.failed));
+        emit(state.copyWith(result: result, state: RegisterStateEnum.failed));
       }
     });
   }

@@ -1,3 +1,6 @@
+## 0.0.6
+* Changed state to register state
+
 ## 0.0.5
 * Ready for demo
 

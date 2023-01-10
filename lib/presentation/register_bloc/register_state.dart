@@ -1,6 +1,6 @@
 part of 'register_bloc.dart';
 
-enum State {
+enum RegisterStateEnum {
   idle,
   loading,
   registered,
@@ -8,19 +8,19 @@ enum State {
 }
 
 class RegisterState extends Equatable {
-  final State state;
+  final RegisterStateEnum state;
   final Result? result;
 
   const RegisterState(this.state, this.result);
   factory RegisterState.initial() {
-    return const RegisterState(State.idle, null);
+    return const RegisterState(RegisterStateEnum.idle, null);
   }
   @override
   List<Object?> get props => throw UnimplementedError();
 
   RegisterState copyWith({
     Result? result,
-    State? state,
+    RegisterStateEnum? state,
   }) {
     return RegisterState(
       state ?? this.state,
