@@ -1,3 +1,6 @@
+## 0.0.7
+* Fixed unimplemented methods
+
 ## 0.0.6
 * Changed state to register state
 
