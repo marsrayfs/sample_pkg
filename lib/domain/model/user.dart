@@ -2,5 +2,22 @@ library standalone_pkg;
 
 class User {
   final String uid;
-  User(this.uid);
+  final String? firstname;
+  final String? lastname;
+  User(
+    this.uid,
+    this.firstname,
+    this.lastname,
+  );
+
+  User copyWith({
+    String? firstname,
+    String? lastname,
+  }) {
+    return User(
+      uid,
+      firstname ?? this.firstname,
+      lastname ?? this.lastname,
+    );
+  }
 }

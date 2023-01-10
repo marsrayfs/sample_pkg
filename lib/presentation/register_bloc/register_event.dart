@@ -12,9 +12,3 @@ class StartRegisterEvent extends RegisterEvent {
   final String password;
   const StartRegisterEvent(this.email, this.password);
 }
-
-class WaitingForRegisterEvent extends RegisterEvent {}
-
-class RegistrationSuccessEvent extends RegisterEvent {}
-
-class RegistrationFailedEvent extends RegisterEvent {}

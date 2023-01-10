@@ -1,6 +1,7 @@
 library standalone_pkg;
 
 import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:standalone_pkg/domain/usecase/register_usecase.dart';
 
