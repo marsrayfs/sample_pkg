@@ -1,3 +1,6 @@
+## 0.0.8
+* Added configuration support
+
 ## 0.0.7
 * Fixed unimplemented methods
 
