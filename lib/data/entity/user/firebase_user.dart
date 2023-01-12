@@ -1,7 +1,5 @@
 library standalone_pkg;
 
-import 'dart:collection';
-
 import '../../../domain/model/user.dart';
 
 class FirebaseUser {

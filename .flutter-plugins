@@ -1,11 +1,15 @@
 # This is a generated file; do not edit or check into version control.
 cloud_firestore=/Users/fst.user/sdks/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore-4.3.1/
 cloud_firestore_web=/Users/fst.user/sdks/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore_web-3.2.1/
+firebase_analytics=/Users/fst.user/sdks/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_analytics-10.1.0/
+firebase_analytics_web=/Users/fst.user/sdks/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_analytics_web-0.5.1+8/
 firebase_auth=/Users/fst.user/sdks/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth-4.2.5/
 firebase_auth_web=/Users/fst.user/sdks/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth_web-5.2.4/
 firebase_core=/Users/fst.user/sdks/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-2.4.1/
 firebase_core_web=/Users/fst.user/sdks/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-2.1.0/
 firebase_messaging=/Users/fst.user/sdks/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-14.2.1/
 firebase_messaging_web=/Users/fst.user/sdks/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging_web-3.2.11/
+firebase_remote_config=/Users/fst.user/sdks/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_remote_config-3.0.9/
+firebase_remote_config_web=/Users/fst.user/sdks/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_remote_config_web-1.1.18/
 firebase_storage=/Users/fst.user/sdks/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_storage-11.0.10/
 firebase_storage_web=/Users/fst.user/sdks/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_storage_web-3.3.19/
