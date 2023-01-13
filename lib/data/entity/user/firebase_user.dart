@@ -32,4 +32,9 @@ class FirebaseUser {
       lastname,
     );
   }
+
+  @override
+  String toString() {
+    return 'FirebaseUser: uid: $uid, firstname: $firstname, lastname: $lastname';
+  }
 }
