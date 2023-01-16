@@ -14,10 +14,10 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
   final SignInUseCase signInUseCase;
 
   SignInBloc(this.signInUseCase) : super(SignInInitial()) {
-    on<LogIn>((event, emit) => _onSignIn(event, emit));
+    on<SignIn>((event, emit) => _onSignIn(event, emit));
   }
 
-  _onSignIn(LogIn event, Emitter<SignInState> emitter) async {
+  _onSignIn(SignIn event, Emitter<SignInState> emitter) async {
     emitter(SignInLoading());
     try {
       final result = await signInUseCase.signIn(event.email, event.password);
