@@ -7,14 +7,14 @@ import '../../data/entity/user/firebase_user.dart';
 class User extends FirebaseUser {
   User(
       {required String uid,
-      String? nickname,
-      String? firstname,
-      String? lastname})
+        String? nickname,
+        String? firstname,
+        String? lastname})
       : super(
-            uid: uid,
-            nickname: nickname,
-            firstname: firstname,
-            lastname: lastname);
+      uid: uid,
+      nickname: nickname,
+      firstname: firstname,
+      lastname: lastname);
 
   factory User.fromJson(Map<String, dynamic> json) {
     return User(
@@ -25,9 +25,9 @@ class User extends FirebaseUser {
   }
 
   factory User.fromFirestore(
-    DocumentSnapshot<Map<String, dynamic>> snapshot,
-    SnapshotOptions? options,
-  ) {
+      DocumentSnapshot<Map<String, dynamic>> snapshot,
+      SnapshotOptions? options,
+      ) {
     final data = snapshot.data();
     return User(
         uid: data?['uid'],
