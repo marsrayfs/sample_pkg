@@ -20,4 +20,9 @@ class User {
       lastname ?? this.lastname,
     );
   }
+
+  @override
+  String toString() {
+    return 'User: uid: $uid, firstname: $firstname, lastname: $lastname';
+  }
 }
