@@ -11,14 +11,18 @@ class SignInInitial extends SignInState {}
 
 class SignInLoading extends SignInState {}
 
-class SignedInSuccess extends SignInState {
-  const SignedInSuccess(this.result);
+class AuthenticatedUser extends SignInState {
+  const AuthenticatedUser(this.result);
 
   final Result result;
 
   @override
   List<Object> get props => [result];
 }
+
+class EmailNotVerified extends SignInState {}
+
+class UserInfoNotExisted extends SignInState {}
 
 class ExceptionOccurred extends SignInState {
   const ExceptionOccurred(this.message);
@@ -28,3 +32,5 @@ class ExceptionOccurred extends SignInState {
   @override
   List<Object> get props => [message];
 }
+
+class EmailVerificationSent extends SignInState {}

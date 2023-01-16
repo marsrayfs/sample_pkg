@@ -1,35 +1,50 @@
 library standalone_pkg;
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:standalone_pkg/data/datasource/user/user_datasource.dart';
-import 'package:standalone_pkg/util/result.dart';
-import 'package:standalone_pkg/domain/model/user.dart';
+import 'package:firebase_auth/firebase_auth.dart' as auth;
 
-import '../../entity/user/firebase_user.dart';
+import '../../../domain/model/user.dart';
+import '../../../util/result.dart';
+import 'user_datasource.dart';
 
 class FirebaseUserDatasource extends UserDataSource {
+  _getFirebaseUser() {
+    try {
+      final user = auth.FirebaseAuth.instance.currentUser;
+      return user ?? 'No user found';
+    } catch (e) {
+      throw Failure(e.toString());
+    }
+  }
+
   @override
-  Future<Result> getUser(String uid) async {
-    DocumentReference documentReference =
-        FirebaseFirestore.instance.collection('users').doc(uid);
-    var snapshot = documentReference.get();
-    return Failure("");
+  Future<Result> getUser() async {
+    try {
+      final uid = _getFirebaseUser().uid;
+      final ref = FirebaseFirestore.instance
+          .collection('users')
+          .doc(uid)
+          .withConverter<User>(
+          fromFirestore: User.fromFirestore,
+          toFirestore: (User user, _) => user.toJson());
+      final docSnap = await ref.get();
+      return Success(data: docSnap.data());
+    } catch (e) {
+      throw Failure(e.toString());
+    }
   }
 
   @override
   Future<Result> saveUser(User user) async {
     try {
-      var firebaseUser = FirebaseUser.userToFirebaseUser(user);
-      DocumentReference documentReference =
-          FirebaseFirestore.instance.collection('users').doc(user.uid);
-      documentReference.set(firebaseUser.map()).then((value) {
-        return Success(data: value);
-      }).catchError((e) {
-        return Failure(e);
-      });
+      user.uid = _getFirebaseUser().uid;
+      await FirebaseFirestore.instance
+          .collection('users')
+          .doc(user.uid)
+          .set(user.toJson());
+      return SuccessNoData();
     } catch (e) {
-      return Failure(e);
+      throw Failure(e.toString());
     }
-    return Failure("");
   }
 }

@@ -8,7 +8,13 @@ class FirebaseSignInRepositoryImpl extends SignInRepository {
   FirebaseSignInRepositoryImpl() : super(FirebaseSignInDataSource());
 
   @override
-  Future<Result> signIn({required String email, required String password}) {
-    return dataSource.signIn(email: email, password: password);
+  Future<Result> signIn(
+      {required String email, required String password}) async {
+    return await dataSource.signIn(email: email, password: password);
+  }
+
+  @override
+  Future<Result> isEmailVerified() async {
+    return await dataSource.isEmailVerified();
   }
 }
