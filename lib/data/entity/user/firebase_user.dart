@@ -1,40 +1,21 @@
 library standalone_pkg;
 
-import '../../../domain/model/user.dart';
+import 'package:equatable/equatable.dart';
 
-class FirebaseUser {
-  final String uid;
+class FirebaseUser extends Equatable {
+  String uid;
+  final String? nickname;
   final String? firstname;
   final String? lastname;
 
-  FirebaseUser({required this.uid, this.firstname, this.lastname});
-
-  static FirebaseUser userToFirebaseUser(User user) {
-    return FirebaseUser(
-      uid: user.uid,
-      firstname: user.firstname,
-      lastname: user.lastname,
-    );
-  }
-
-  Map<String, Object?> map() {
-    Map<String, Object?> map = {
-      "firstname": firstname,
-      "lastname": lastname,
-    };
-    return map;
-  }
-
-  User toUser() {
-    return User(
-      uid,
-      firstname,
-      lastname,
-    );
-  }
+  FirebaseUser(
+      {required this.uid, this.nickname, this.firstname, this.lastname});
 
   @override
   String toString() {
     return 'FirebaseUser: uid: $uid, firstname: $firstname, lastname: $lastname';
   }
+
+  @override
+  List<Object?> get props => [uid, firstname, lastname];
 }
