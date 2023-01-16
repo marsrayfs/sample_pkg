@@ -1,3 +1,4 @@
+library standalone_pkg;
 
 import '../../data/datasource/signIn/firebase_sign_in_datasource.dart';
 import '../../data/repository/sign_in_repository.dart';
