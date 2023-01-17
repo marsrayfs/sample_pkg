@@ -15,4 +15,12 @@ class SignInUseCase {
       throw Exception(((e as Failure)).error as String);
     }
   }
+
+  Future<Result> isEmailVerified() async {
+    try {
+      return await repository.isEmailVerified();
+    } catch (e) {
+      throw Exception(((e as Failure)).error as String);
+    }
+  }
 }
