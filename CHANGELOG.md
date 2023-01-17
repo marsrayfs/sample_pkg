@@ -1,3 +1,6 @@
+## 0.0.9
+* Added UserInformation and SignIn support
+
 ## 0.0.8
 * Added configuration support
 
