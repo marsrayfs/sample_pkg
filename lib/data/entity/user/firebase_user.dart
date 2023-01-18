@@ -1,21 +1,117 @@
 library standalone_pkg;
 
-import 'package:equatable/equatable.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:standalone_pkg/domain/model/user.dart';
 
-class FirebaseUser extends Equatable {
-  String uid;
+class FirebaseUser {
+  final String uid;
   final String? nickname;
   final String? firstname;
   final String? lastname;
+  final String? firstnameKana;
+  final String? lastnameKana;
+  final String? mail;
+  final String? addressCity;
+  final String? addressNumber;
+  final String? addressPrefecture;
+  final String? phoneNumber;
+  final String? sex;
+  final int? birthDay;
+  final int? birthMonth;
+  final int? birthYear;
+  final bool? subscription;
+  final bool? withdraw;
 
-  FirebaseUser(
-      {required this.uid, this.nickname, this.firstname, this.lastname});
+  const FirebaseUser({
+    required this.uid,
+    this.nickname,
+    this.firstname,
+    this.lastname,
+    this.firstnameKana,
+    this.lastnameKana,
+    this.mail,
+    this.addressCity,
+    this.addressNumber,
+    this.addressPrefecture,
+    this.phoneNumber,
+    this.sex,
+    this.birthDay,
+    this.birthMonth,
+    this.birthYear,
+    this.subscription,
+    this.withdraw,
+  });
 
-  @override
-  String toString() {
-    return 'FirebaseUser: uid: $uid, firstname: $firstname, lastname: $lastname';
+  factory FirebaseUser.fromUser(User user) {
+    return FirebaseUser(
+      uid: user.uid,
+      nickname: user.nickname,
+      firstname: user.firstname,
+      lastname: user.lastname,
+      firstnameKana: user.firstnameKana,
+      mail: user.mail,
+      addressCity: user.addressCity,
+      addressNumber: user.addressNumber,
+      addressPrefecture: user.addressPrefecture,
+      phoneNumber: user.phoneNumber,
+      sex: user.sex,
+      birthDay: user.birthDay,
+      birthMonth: user.birthMonth,
+      birthYear: user.birthYear,
+      subscription: user.subscription,
+      withdraw: user.withdraw,
+    );
+  }
+
+  factory FirebaseUser.fromData(
+    Map<String, dynamic> data,
+  ) {
+    return FirebaseUser(
+      uid: data['uid'],
+      nickname: data['nickname'],
+      firstname: data['firstname'],
+      lastname: data['lastname'],
+      firstnameKana: data['firstnameKana'],
+      lastnameKana: data['lastnameKana'],
+      mail: data['mail'],
+      addressCity: data['addressCity'],
+      addressNumber: data['addressNumber'],
+      addressPrefecture: data['addressPrefecture'],
+      phoneNumber: data['phoneNumber'],
+      sex: data['sex'],
+      birthDay: data['birthDay'],
+      birthMonth: data['birthMonth'],
+      birthYear: data['birthYear'],
+      subscription: data['subscription'],
+      withdraw: data['withdraw'],
+    );
+  }
+
+  Map<String, dynamic> getMap() {
+    return {
+      'uid': uid,
+      'nickname': nickname,
+      'firstname': firstname,
+      'lastname': lastname,
+      'firstnameKana': firstnameKana,
+      'lastnameKana': lastnameKana,
+      'mail': mail,
+      'addressCity': addressCity,
+      'addressNumber': addressNumber,
+      'addressPrefecture': addressNumber,
+      'addressStructure': addressNumber,
+      'phoneNumber': phoneNumber,
+      'sex': sex,
+      'birthDay': birthDay,
+      'birthMonth': birthMonth,
+      'birthYear': birthYear,
+      'subscription': subscription,
+      'withdraw': withdraw,
+    };
   }
 
   @override
-  List<Object?> get props => [uid, firstname, lastname];
+  String toString() {
+    return 'FirebaseUser';
+  }
 }

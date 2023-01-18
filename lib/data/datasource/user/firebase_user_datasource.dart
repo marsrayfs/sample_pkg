@@ -2,6 +2,7 @@ library standalone_pkg;
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
+import 'package:standalone_pkg/data/entity/user/firebase_user.dart';
 
 import '../../../domain/model/user.dart';
 import '../../../util/result.dart';
@@ -21,27 +22,25 @@ class FirebaseUserDatasource extends UserDataSource {
   Future<Result> getUser() async {
     try {
       final uid = _getFirebaseUser().uid;
-      final ref = FirebaseFirestore.instance
-          .collection('users')
-          .doc(uid)
-          .withConverter<User>(
-          fromFirestore: User.fromFirestore,
-          toFirestore: (User user, _) => user.toJson());
+      final ref = FirebaseFirestore.instance.collection('users').doc(uid);
       final docSnap = await ref.get();
-      return Success(data: docSnap.data());
+      if (docSnap.data() != null) {
+        final FirebaseUser fbUser = FirebaseUser.fromData(docSnap.data()!);
+        return Success(data: User.fromMap(fbUser.getMap()));
+      }
+      return Failure("Firebase User not found");
     } catch (e) {
-      throw Failure(e.toString());
+      return Failure(e.toString());
     }
   }
 
   @override
   Future<Result> saveUser(User user) async {
     try {
-      user.uid = _getFirebaseUser().uid;
       await FirebaseFirestore.instance
           .collection('users')
           .doc(user.uid)
-          .set(user.toJson());
+          .set(FirebaseUser.fromUser(user).getMap());
       return SuccessNoData();
     } catch (e) {
       throw Failure(e.toString());

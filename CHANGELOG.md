@@ -1,3 +1,6 @@
+##0.0.10
+* Fixing Entity
+
 ## 0.0.9
 * Added UserInformation and SignIn support
 

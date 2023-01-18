@@ -1,74 +1,68 @@
 library standalone_pkg;
 
-import 'package:cloud_firestore/cloud_firestore.dart';
+class User {
+  final String uid;
+  final String? nickname;
+  final String? firstname;
+  final String? lastname;
+  final String? firstnameKana;
+  final String? lastnameKana;
+  final String? mail;
+  final String? addressCity;
+  final String? addressNumber;
+  final String? addressPrefecture;
+  final String? phoneNumber;
+  final String? sex;
+  final int? birthDay;
+  final int? birthMonth;
+  final int? birthYear;
+  final bool? subscription;
+  final bool? withdraw;
 
-import '../../data/entity/user/firebase_user.dart';
+  User({
+    required this.uid,
+    this.nickname,
+    this.firstname,
+    this.lastname,
+    this.firstnameKana,
+    this.lastnameKana,
+    this.mail,
+    this.addressCity,
+    this.addressNumber,
+    this.addressPrefecture,
+    this.phoneNumber,
+    this.sex,
+    this.birthDay,
+    this.birthMonth,
+    this.birthYear,
+    this.subscription,
+    this.withdraw,
+  });
 
-class User extends FirebaseUser {
-  User(
-      {required String uid,
-        String? nickname,
-        String? firstname,
-        String? lastname})
-      : super(
-      uid: uid,
-      nickname: nickname,
-      firstname: firstname,
-      lastname: lastname);
-
-  factory User.fromJson(Map<String, dynamic> json) {
+  factory User.fromMap(Map<String, dynamic> map) {
     return User(
-        uid: json["uid"],
-        firstname: json["nickname"] ?? "",
-        nickname: json["firstname"] ?? "",
-        lastname: json["lastname"] ?? "");
-  }
-
-  factory User.fromFirestore(
-      DocumentSnapshot<Map<String, dynamic>> snapshot,
-      SnapshotOptions? options,
-      ) {
-    final data = snapshot.data();
-    return User(
-        uid: data?['uid'],
-        nickname: data?['nickname'],
-        firstname: data?['firstname'],
-        lastname: data?['lastname']);
-  }
-
-  Map<String, dynamic> toFirestore() {
-    return {
-      if (uid != null) 'uid': uid,
-      if (uid != nickname) 'nickname': nickname,
-      if (uid != firstname) 'firstname': firstname,
-      if (uid != lastname) 'lastname': lastname,
-    };
-  }
-
-  factory User.fromEntity(FirebaseUser firebaseUser) {
-    return User(
-        uid: firebaseUser.uid,
-        nickname: firebaseUser.nickname,
-        firstname: firebaseUser.firstname,
-        lastname: firebaseUser.lastname);
-  }
-
-  Map<String, dynamic> toJson() {
-    return {
-      "uid": uid,
-      "nickname": nickname,
-      "firstname": firstname,
-      "lastname": lastname
-    };
-  }
-
-  FirebaseUser toEntity() {
-    return FirebaseUser(
-        uid: uid, nickname: nickname, firstname: firstname, lastname: lastname);
+      uid: map['uid'],
+      nickname: map['nickname'],
+      firstname: map['firstname'],
+      lastname: map['lastname'],
+      firstnameKana: map['firstnameKana'],
+      lastnameKana: map['lastnameKana'],
+      mail: map['mail'],
+      addressCity: map['addressCity'],
+      addressNumber: map['addressNumber'],
+      addressPrefecture: map['addressPrefecture'],
+      phoneNumber: map['phoneNumber'],
+      sex: map['sex'],
+      birthDay: map['birthDay'],
+      birthMonth: map['birthMonth'],
+      birthYear: map['birthYear'],
+      subscription: map['subscription'],
+      withdraw: map['withdraw'],
+    );
   }
 
   @override
   String toString() {
-    return 'User: uid: $uid, firstname: $firstname, lastname: $lastname';
+    return 'User';
   }
 }
