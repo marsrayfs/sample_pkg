@@ -50,7 +50,7 @@ class User {
       firstnameKana: firstnameKana,
       lastnameKana: lastnameKana,
       photo: photo,
-      mail: mail,
+      mail: email,
       addressCity: addressCity,
       addressNumber: addressNumber,
       addressPrefecture: addressPrefecture,
