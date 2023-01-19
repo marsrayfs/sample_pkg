@@ -1,3 +1,6 @@
+## 0.0.13
+* Fixing Comments
+
 ## 0.0.12
 * Adding profile photo support
 
