@@ -37,13 +37,19 @@ class FirebaseUserDatasource extends UserDataSource {
   @override
   Future<Result> saveUser(User user) async {
     try {
+      String uid = await _getFirebaseUser().uid;
       await FirebaseFirestore.instance
           .collection('users')
-          .doc(user.uid)
+          .doc(uid)
           .set(FirebaseUser.fromUser(user).getMap());
       return SuccessNoData();
     } catch (e) {
       throw Failure(e.toString());
     }
+  }
+
+  @override
+  Future<Result> getUid() async {
+    return await _getFirebaseUser().uid;
   }
 }

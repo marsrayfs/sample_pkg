@@ -17,4 +17,9 @@ class FirebaseUserRepositoryImpl extends UserRepository {
   Future<Result> saveUser(User user) async {
     return await dataSource.saveUser(user);
   }
+
+  @override
+  Future<Result> getUid() async {
+    return await dataSource.getUid();
+  }
 }

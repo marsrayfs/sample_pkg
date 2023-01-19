@@ -7,4 +7,6 @@ abstract class UserDataSource {
   Future<Result> saveUser(User user);
 
   Future<Result> getUser();
+
+  Future<Result> getUid();
 }

@@ -12,4 +12,6 @@ abstract class UserRepository {
   Future<Result> getUser();
 
   Future<Result> saveUser(User user);
+
+  Future<Result> getUid();
 }
