@@ -10,7 +10,7 @@ class PageBloc extends Bloc<PageEvent, PageState> {
   int index = 0;
 
   PageBloc(this.max, this.min) : super(PageInitial()) {
-    on<Next>((event, emit) {
+    on<NextEvent>((event, emit) {
       index++;
       if (index < max) {
         emit(Moving(index));
@@ -19,7 +19,7 @@ class PageBloc extends Bloc<PageEvent, PageState> {
         emit(NoChange());
       }
     });
-    on<Previous>((event, emit) {
+    on<PreviousEvent>((event, emit) {
       index--;
       if (index > min) {
         emit(Moving(index));
@@ -28,7 +28,7 @@ class PageBloc extends Bloc<PageEvent, PageState> {
         emit(NoChange());
       }
     });
-    on<Move>((event, emit) {
+    on<MoveEvent>((event, emit) {
       index = event.index;
       emit(Moving(index));
     });

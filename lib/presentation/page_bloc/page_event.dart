@@ -7,11 +7,11 @@ abstract class PageEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class Next extends PageEvent {}
+class NextEvent extends PageEvent {}
 
-class Previous extends PageEvent {}
+class PreviousEvent extends PageEvent {}
 
-class Move extends PageEvent {
+class MoveEvent extends PageEvent {
   final int index;
-  const Move(this.index);
+  const MoveEvent(this.index);
 }
