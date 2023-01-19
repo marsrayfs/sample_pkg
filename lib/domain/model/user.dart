@@ -41,6 +41,29 @@ class User {
     this.withdraw,
   });
 
+  User copyWith(String uid, String email) {
+    return User(
+      uid: uid,
+      nickname: nickname,
+      firstname: firstname,
+      lastname: lastname,
+      firstnameKana: firstnameKana,
+      lastnameKana: lastnameKana,
+      photo: photo,
+      mail: mail,
+      addressCity: addressCity,
+      addressNumber: addressNumber,
+      addressPrefecture: addressPrefecture,
+      phoneNumber: phoneNumber,
+      sex: sex,
+      birthDay: birthDay,
+      birthMonth: birthMonth,
+      birthYear: birthYear,
+      subscription: subscription,
+      withdraw: withdraw,
+    );
+  }
+
   factory User.fromMap(Map<String, dynamic> map) {
     return User(
       uid: map['uid'],
