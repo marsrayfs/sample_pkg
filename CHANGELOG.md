@@ -1,4 +1,7 @@
-##0.0.10
+## 0.0.11
+* Fixing sign in
+
+## 0.0.10
 * Fixing Entity
 
 ## 0.0.9

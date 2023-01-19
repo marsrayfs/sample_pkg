@@ -32,9 +32,14 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
       final isVerified = await signInUseCase.isEmailVerified();
       if ((isVerified as Success).data as bool) {
         final user = await userUseCase.getUser();
-        ((user as Success)).data != null
+        if(user is Success){
+           ((user as Success)).data != null
             ? emitter(AuthenticatedUser(user))
             : emitter(UserInfoNotExisted());
+        } else {
+          emitter(UserInfoNotExisted());
+        }
+       
       } else {
         emitter(EmailNotVerified());
       }
