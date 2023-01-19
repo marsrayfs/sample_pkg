@@ -1,6 +1,6 @@
 name: standalone_pkg
 description: A new Flutter package with a customized TextButton
-version: 0.0.15
+version: 0.0.16
 homepage: https://github.com/marsrayfs/sample_pkg
 
 environment:

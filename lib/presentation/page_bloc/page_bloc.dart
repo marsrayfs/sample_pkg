@@ -28,5 +28,9 @@ class PageBloc extends Bloc<PageEvent, PageState> {
         emit(NoChange());
       }
     });
+    on<Move>((event, emit) {
+      index = event.index;
+      emit(Moving(index));
+    });
   }
 }
