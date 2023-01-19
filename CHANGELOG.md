@@ -1,3 +1,6 @@
+## 0.0.12
+* Adding profile photo support
+
 ## 0.0.11
 * Fixing sign in
 
