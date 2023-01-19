@@ -1,9 +1,8 @@
 import 'package:equatable/equatable.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:standalone_pkg/domain/usecase/get_package_info_usecase.dart';
 import 'package:standalone_pkg/util/result.dart';
-import 'package:standalone_pkg/data/datasource/package_info/package_info_datasource.dart';
 
 part 'package_info_event.dart';
 part 'package_info_state.dart';
