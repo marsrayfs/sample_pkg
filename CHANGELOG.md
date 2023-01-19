@@ -1,3 +1,6 @@
+## 0.0.15
+* PackageInformation integration
+
 ## 0.0.14
 * Fixing null email
 
