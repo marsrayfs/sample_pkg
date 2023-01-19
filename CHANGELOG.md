@@ -1,3 +1,6 @@
+## 0.0.16
+* Adding additional event
+
 ## 0.0.15
 * PackageInformation integration
 
