@@ -15,12 +15,9 @@ class FirebaseFileUploadDataSource implements FileUploadDataSource {
     try {
       Reference reference = FirebaseStorage.instance.ref().child(path);
       await reference.putFile(File(file.path));
-      await reference.getDownloadURL().then((imageUrl) async {
-        return Success(data: imageUrl);
-      });
+      return Success(data: await reference.getDownloadURL());
     } catch (e) {
       return Failure(e);
     }
-    return Failure("Upload Failed");
   }
 }
