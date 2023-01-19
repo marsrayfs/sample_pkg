@@ -10,6 +10,7 @@ class FirebaseUser {
   final String? lastname;
   final String? firstnameKana;
   final String? lastnameKana;
+  final String? photo;
   final String? mail;
   final String? addressCity;
   final String? addressNumber;
@@ -29,6 +30,7 @@ class FirebaseUser {
     this.lastname,
     this.firstnameKana,
     this.lastnameKana,
+    this.photo,
     this.mail,
     this.addressCity,
     this.addressNumber,
@@ -49,6 +51,8 @@ class FirebaseUser {
       firstname: user.firstname,
       lastname: user.lastname,
       firstnameKana: user.firstnameKana,
+      lastnameKana: user.lastnameKana,
+      photo: user.photo,
       mail: user.mail,
       addressCity: user.addressCity,
       addressNumber: user.addressNumber,
@@ -73,6 +77,7 @@ class FirebaseUser {
       lastname: data['lastname'],
       firstnameKana: data['firstnameKana'],
       lastnameKana: data['lastnameKana'],
+      photo: data['photo'],
       mail: data['mail'],
       addressCity: data['addressCity'],
       addressNumber: data['addressNumber'],
@@ -95,11 +100,11 @@ class FirebaseUser {
       'lastname': lastname,
       'firstnameKana': firstnameKana,
       'lastnameKana': lastnameKana,
+      'photo': photo,
       'mail': mail,
       'addressCity': addressCity,
       'addressNumber': addressNumber,
-      'addressPrefecture': addressNumber,
-      'addressStructure': addressNumber,
+      'addressPrefecture': addressPrefecture,
       'phoneNumber': phoneNumber,
       'sex': sex,
       'birthDay': birthDay,

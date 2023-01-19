@@ -7,6 +7,7 @@ class User {
   final String? lastname;
   final String? firstnameKana;
   final String? lastnameKana;
+  final String? photo;
   final String? mail;
   final String? addressCity;
   final String? addressNumber;
@@ -26,6 +27,7 @@ class User {
     this.lastname,
     this.firstnameKana,
     this.lastnameKana,
+    this.photo,
     this.mail,
     this.addressCity,
     this.addressNumber,
@@ -47,6 +49,7 @@ class User {
       lastname: map['lastname'],
       firstnameKana: map['firstnameKana'],
       lastnameKana: map['lastnameKana'],
+      photo: map['photo'],
       mail: map['mail'],
       addressCity: map['addressCity'],
       addressNumber: map['addressNumber'],
